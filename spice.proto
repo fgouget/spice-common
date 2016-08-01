@@ -367,6 +367,7 @@ enum8 image_type {
     BITMAP,
     QUIC,
     RESERVED,
+    DRM_PRIME,
     LZ_PLT = 100,
     LZ_RGB,
     GLZ_RGB,

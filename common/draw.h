@@ -143,6 +143,15 @@ typedef struct SpiceJPEGAlphaData {
     SpiceChunks *data;
 } SpiceJPEGAlphaData;
 
+typedef struct SpiceDrmPrime {
+    int drm_dma_buf_fd;
+    uint32_t width;
+    uint32_t height;
+    uint32_t stride;
+    uint32_t drm_fourcc_format;
+    uint32_t flags;
+} SpiceDrmPrime;
+
 
 typedef struct SpiceImage {
     SpiceImageDescriptor descriptor;
@@ -156,6 +165,7 @@ typedef struct SpiceImage {
         SpiceLZ4Data        lz4;
         SpiceZlibGlzRGBData zlib_glz;
         SpiceJPEGAlphaData  jpeg_alpha;
+        SpiceDrmPrime drm_prime;
     } u;
 } SpiceImage;
 
