@@ -143,7 +143,9 @@ typedef struct SpiceJPEGAlphaData {
     SpiceChunks *data;
 } SpiceJPEGAlphaData;
 
+typedef struct SpiceDrmPrimeContext SpiceDrmPrimeContext;
 typedef struct SpiceDrmPrime {
+    SpiceDrmPrimeContext *context;
     int drm_dma_buf_fd;
     uint32_t width;
     uint32_t height;
