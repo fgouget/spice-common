@@ -1138,6 +1138,10 @@ static pixman_image_t *get_surface_from_canvas(CanvasBase *canvas,
     case SPICE_IMAGE_TYPE_BITMAP:
         return canvas_get_bits(canvas, &image->u.bitmap, want_original);
 
+    case SPICE_IMAGE_TYPE_DRM_PRIME:
+        // TODO
+        return NULL;
+
     default:
         spice_warn_if_reached();
         return NULL;
@@ -1533,6 +1537,12 @@ static pixman_image_t *canvas_get_mask(CanvasBase *canvas, SpiceQMask *mask, int
     case SPICE_IMAGE_TYPE_BITMAP: {
         is_invers = need_invers && !cache_me;
         surface = canvas_get_bitmap_mask(canvas, &image->u.bitmap, is_invers);
+        break;
+    }
+    case SPICE_IMAGE_TYPE_DRM_PRIME: {
+        // TODO !!!
+        is_invers = FALSE;
+        surface = NULL;
         break;
     }
     case SPICE_IMAGE_TYPE_FROM_CACHE:
