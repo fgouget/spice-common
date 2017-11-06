@@ -779,6 +779,15 @@ channel DisplayChannel : BaseChannel {
 
     Empty stream_destroy_all;
 
+    /* This message is used to transmit part of a stream frame.
+     * Last stream frame data chunk should be sent with a stream_data
+     * message.
+     */
+    message {
+	StreamDataHeader base;
+	uint8 data[] @as_ptr(data_size) @nomarshal;
+    } stream_partial_data;
+
     message {
         DisplayBase base;
         struct Fill {

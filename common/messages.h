@@ -360,6 +360,12 @@ typedef struct SpiceMsgDisplayStreamDestroy {
     uint32_t id;
 } SpiceMsgDisplayStreamDestroy;
 
+typedef struct SpiceMsgDisplayStreamPartialData {
+    SpiceStreamDataHeader base;
+    uint32_t data_size;
+    uint8_t *data;
+} SpiceMsgDisplayStreamPartialData;
+
 typedef struct SpiceMsgDisplayStreamActivateReport {
     uint32_t stream_id;
     uint32_t unique_id;
